@@ -1,4 +1,5 @@
 <?php
+
 namespace Services;
 
 // namespace App;
@@ -7,17 +8,10 @@ namespace Services;
 class Almg
 {
 
-    private $URL;
-    private $FORMATO;
+    private $URL = 'http://dadosabertos.almg.gov.br/ws/';
+    private $FORMATO = '?formato=json';
+    private $METHOD = 'GET';
     private $URN;
-    private $METHOD;
-
-    function __construct()
-    {
-        $this->URL = 'http://dadosabertos.almg.gov.br/ws/';
-        $this->FORMATO = '?formato=json';
-        $this->METHOD = 'GET';
-    }
 
     private function setURN($parametro)
     {
