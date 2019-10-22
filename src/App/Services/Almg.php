@@ -30,6 +30,6 @@ class Almg
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $response = json_decode(curl_exec($ch), true);
-        return $response;
+        return $response['list'];
     }
 }

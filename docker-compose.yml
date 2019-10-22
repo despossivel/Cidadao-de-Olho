@@ -3,7 +3,6 @@ version: '2'
 volumes:
     logs:
         driver: local
-
 services:
     slim:
         image: php:7-alpine

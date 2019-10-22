@@ -13,8 +13,17 @@ class Deputados
     public function obter()
     {
 
+
+        $crud = new CRUD();
+        print_r($crud->insert());
+
+
+
+
+
         $almg = new Almg();
         $response = $almg->request($this->URN);
+        
         return $response;
     }
 
