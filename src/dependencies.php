@@ -21,10 +21,14 @@ return function (App $app) {
     };
 
 
-// // HomeController
-// $container['HomeController'] = function ($container) {
-//     return new \APP\Controller\HomeController($container);
-// };
-
+    // // HomeController
+    $container['Deputados'] = function ($container) {
+        return new Controllers\Deputados($container);
+    };
+  
+    $container['Verbas'] = function ($container) {
+        return new Controllers\Verbas($container);
+    };
+    
 
 };

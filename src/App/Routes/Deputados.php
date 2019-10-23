@@ -23,7 +23,6 @@ return function (App $app) {
    *     ),
    * )
    */
-    $app->get('/todos/deputados', function (Request $request, Response $response, array $args) use ($deputados) {
-        return $response->withJson($deputados->obter(), 200)->withHeader('Content-type', 'application/json');
-    });
+    $app->get('/todos/deputados', 'Deputados:todos');
+
 };

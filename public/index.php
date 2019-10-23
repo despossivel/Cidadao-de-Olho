@@ -19,11 +19,12 @@ $dependencies = require __DIR__ . '/../src/dependencies.php';
 $dependencies($app);
 
 
-// Register routes
+// //Register routes
 // $routes = scandir(__DIR__ . '/../src/App/Routes/');
 // foreach ($routes as $route) {
 //     if (strpos($route, '.php')) {
-//         require __DIR__ . '/../src/App/Routes/' . $route;
+//         $_route_ = require __DIR__ . '/../src/App/Routes/' . $route;
+//         $_route_($App);
 //     }
 // }
 
