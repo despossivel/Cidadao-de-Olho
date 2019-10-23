@@ -18,8 +18,8 @@ class Verbas
     function __construct()
     {
         $this->CRUD = new CRUD();
-        $ControllerDeputados = new ControllerDeputados();
-        $ControllerDeputados->getDados();
+        // $ControllerDeputados = new ControllerDeputados();
+        // $ControllerDeputados->getDados();
     }
 
     public function todas(Request $request, Response $response, array $args)
