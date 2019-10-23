@@ -47,13 +47,13 @@ class Verbas  //extends Deputados  //extends Deputados
 
 
 
-    public function rankingTop($mes)
+    public function rankingTop($mes,$ano = '2019')
     {
         $top = [];
         $select = $this->CONNECT->query("SELECT count(verbas.idDeputado) as verbasIdenizatiorias, deputados.nome, deputados.partido, verbas.dataReferencia 
         FROM verbas 
         INNER JOIN deputados ON verbas.idDeputado=deputados.idDeputados
-        WHERE  MONTH(dataReferencia) = '{$mes}' AND YEAR(dataReferencia) = '2019'
+        WHERE  MONTH(dataReferencia) = '{$mes}' AND YEAR(dataReferencia) = '{$ano}'
         group by verbas.idDeputado
         ORDER BY verbasIdenizatiorias DESC
         LIMIT 5");

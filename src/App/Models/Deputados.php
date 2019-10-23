@@ -7,7 +7,6 @@ use Models\Connect;
 use Models\Verbas as ModelVerbas;
 use Controllers\Verbas as AlmgVerbas;
 
-
 class Deputados  //extends Deputados
 {
 
