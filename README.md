@@ -13,7 +13,6 @@ ou utilizando o server do php
 
 composer start
 
-
 ###Rotas de uso
 
 Ver todos os deputados

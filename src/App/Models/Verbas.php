@@ -50,12 +50,12 @@ class Verbas  //extends Deputados  //extends Deputados
     public function rankingTop($mes)
     {  
         $top = [];
-        $select = $this->CONNECT->query("SELECT count(verbas.idDeputado) as count, deputados.nome, deputados.partido, verbas.dataReferencia 
+        $select = $this->CONNECT->query("SELECT count(verbas.idDeputado) as verbasIdenizatiorias, deputados.nome, deputados.partido, verbas.dataReferencia 
         FROM verbas 
         INNER JOIN deputados ON verbas.idDeputado=deputados.idDeputados
         WHERE  MONTH(dataReferencia) = '{$mes}' AND YEAR(dataReferencia) = '2019'
         group by verbas.idDeputado
-        ORDER BY count DESC
+        ORDER BY verbasIdenizatiorias DESC
         LIMIT 5");
 
         while ($deputado = $select->fetch_assoc()) {
