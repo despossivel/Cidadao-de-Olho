@@ -29,8 +29,9 @@ class Deputados
     public function obter()
     {
 
-        $count = $this->CRUD->count();     
-        if ($count == 77) {  
+        $count = $this->CRUD->count(); 
+
+        if ($count->num_rows == 77) {  
             return $this->CRUD->select();
         } else {
             $almg = new Almg();

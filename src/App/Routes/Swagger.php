@@ -22,9 +22,8 @@ use Slim\Http\Response;
  */
 return function (App $app) {
     $container = $app->getContainer(); 
-
     $app->get('/v1/docs', function (Request $request, Response $response, array $args) {
-        $dir = __DIR__ . '/'; // Scan Controller folder
+        $dir = __DIR__ . '/';
         $swagger = \Swagger\scan([$dir]);
         $response->write($swagger);
         $response = $response->withHeader('Content-Type', 'application/json');

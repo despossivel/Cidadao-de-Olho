@@ -5,7 +5,7 @@ namespace Models;
 use Services\Almg;
 use Models\Connect;
 use Models\Verbas as ModelVerbas;
-use Controllers\Verbas as AlmgVerbas;
+use Controllers\Verbas as ControllersVerbas;
 
 class Deputados  //extends Deputados
 {
@@ -20,7 +20,7 @@ class Deputados  //extends Deputados
 
     public function count()
     {
-        return $this->CONNECT->query("SELECT count(*) FROM deputados");
+        return $this->CONNECT->query("SELECT idDeputados FROM deputados");
     }
 
     public function select()
@@ -36,13 +36,13 @@ class Deputados  //extends Deputados
 
     public function insertTodos($deputados)
     {
-        $almg = new AlmgVerbas();
+        $controllerVerbas = new ControllersVerbas();
         $modelVerbas = new ModelVerbas();
 
         for ($i = 0; $i < count($deputados); $i++) {
 
-            $AlmgVerbas = $almg->obter($deputados[$i]["id"]);
-            $modelVerbas->insert($AlmgVerbas);
+            $verbas = $controllerVerbas->obter($deputados[$i]["id"]);
+            $modelVerbas->insert($verbas);
 
             $this->CONNECT->query("INSERT INTO deputados (idDeputados, nome, partido, tagLocalizacao) 
                                              VALUES ('{$deputados[$i]["id"]}','{$deputados[$i]["nome"]}','{$deputados[$i]["partido"]}','{$deputados[$i]["tagLocalizacao"]}')");
