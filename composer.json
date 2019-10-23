@@ -1,14 +1,14 @@
 {
-    "name": "slim/slim-skeleton",
-    "description": "A Slim Framework skeleton application for rapid development",
-    "keywords": ["microframework", "rest", "router", "psr7"],
-    "homepage": "http://github.com/slimphp/Slim-Skeleton",
+    "name": "Cidadão de olho",
+    "description": "Visa facilitar o monitoramento público estadual de gastos em verbas indenizatória.",
+    "keywords": ["cidadao", "almg", "codificar"],
+    "homepage": "https://github.com/despossivel/Cidadao-de-Olho",
     "license": "MIT",
     "authors": [
         {
             "name": "Matheus H. Brito",
             "email": "mattbmoller@gmail.com",
-            "homepage": "http://www.joshlockhart.com/"
+            "homepage": "https://github.com/despossivel"
         }
     ],
     "require": {
