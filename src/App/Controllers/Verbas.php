@@ -8,6 +8,7 @@ use Slim\Http\Response;
 
 use Services\Almg;
 use Models\Verbas as CRUD;
+use Controllers\Deputados AS ControllerDeputados;
 
 class Verbas
 {
@@ -17,6 +18,8 @@ class Verbas
     function __construct()
     {
         $this->CRUD = new CRUD();
+        $ControllerDeputados = new ControllerDeputados();
+        $ControllerDeputados->getDados();
     }
 
     public function todas(Request $request, Response $response, array $args)
