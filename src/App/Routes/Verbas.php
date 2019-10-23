@@ -10,9 +10,24 @@ return function (App $app) {
     $container = $app->getContainer();
      
     $app->get('/verba/deputado/{idDeputado}',function (Request $request, Response $response, array $args) use ($container) {
-        $deputados = new Verbas();
-        return $response->withJson($deputados->obter($args['idDeputado']), 200)
+        $verbas = new Verbas();
+        return $response->withJson($verbas->obter($args['idDeputado']), 200)
         ->withHeader('Content-type', 'application/json');
     });
+
+
+    $app->get('/verbas/todas',function (Request $request, Response $response, array $args) use ($container) {
+        $verbas = new Verbas();
+        return $response->withJson($verbas->obterTodas(), 200)
+        ->withHeader('Content-type', 'application/json');
+    });
+
+
+    $app->get('/verbas/todas/ranking',function (Request $request, Response $response, array $args) use ($container) {
+        $verbas = new Verbas();
+        return $response->withJson($verbas->rankingTodos(), 200)
+        ->withHeader('Content-type', 'application/json');
+    });
+
 
 };

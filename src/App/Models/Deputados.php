@@ -2,34 +2,60 @@
 
 namespace Models;
 
+use Services\Almg;
 use Models\Connect;
+use Models\Verbas as ModelVerbas;
+use Controllers\Verbas as AlmgVerbas;
 
 
 class Deputados  //extends Deputados
 {
-    
+
     private $CONNECT;
 
     function __construct()
-    {   
+    {
         $connect = new Connect();
         $this->CONNECT = $connect->Mysqli();
     }
 
-
-    // $mysqli->query("INSERT INTO registros_dominios (idRegistro, tipo, dominio, status, data_cadastro,
-	// 											  usuario_cadastro, codigo) 
-    //                                               VALUES ('" . $id . "', '" . $tipo . "', '" . $dados->dominio . "',1, '$data_atual', '$userAutorizacao', '$dados->codigo')");
-                                                  
-
-    public function select(){
-        $this->CONNECT->query("SELECT * FROM deputados");
-        
+    public function count()
+    {
+        $count = $this->CONNECT->query("SELECT count(*) FROM deputados");
+        return $count;
     }
 
-    public function insert(){
-            return $this->CONNECT;
+    public function select()
+    {
+        $deputados = [];
+        $select = $this->CONNECT->query("SELECT * FROM deputados");
+        while ($deputado = $select->fetch_assoc()) {
+            $deputados[] = $deputado;
+        }
+
+        return $deputados;
     }
 
+    public function insertTodos($deputados)
+    {
+        $almg = new AlmgVerbas();
+        $modelVerbas = new ModelVerbas();
 
+        for ($i = 0; $i < count($deputados); $i++) {
+
+            $AlmgVerbas = $almg->obter($deputados[$i]["id"]);
+            $modelVerbas->insert($AlmgVerbas);
+
+            $this->CONNECT->query("INSERT INTO deputados (idDeputados, nome, partido, tagLocalizacao) 
+                                             VALUES ('{$deputados[$i]["id"]}','{$deputados[$i]["nome"]}','{$deputados[$i]["partido"]}','{$deputados[$i]["tagLocalizacao"]}')");
+
+            if ($this->CONNECT->error) {
+                echo "Error: " . $this->CONNECT->error;
+                return false;
+            }
+            
+        }
+
+        return true;
+    }
 }

@@ -1,8 +1,7 @@
 <?php
 
 namespace Models;
-
-// use Exception;
+use Exception;
 
 class Connect
 {
@@ -34,20 +33,13 @@ class Connect
 
     public function Mysqli()
     {
-        
-        $conn = array(
-            "host" => "192.168.3.19",
-            "username" => "root",
-            "password" => "root",
-            "database" => "laravel"
-        );
 
         $this->mysqli = new \mysqli(
-            $conn["DB_HOST"],
-            $conn["DB_USERNAME"],
-            $conn["DB_PASSWORD"],
-            $conn["DB_DATABASE"],
-            $conn["DB_PORT"]
+            $this->env["DB_HOST"],
+            $this->env["DB_USERNAME"],
+            $this->env["DB_PASSWORD"],
+            $this->env["DB_DATABASE"],
+            $this->env["DB_PORT"]
         );
 
         try {
@@ -57,46 +49,4 @@ class Connect
             echo 'Exceção capturada: ',  $e->getMessage(), "\n";
         }
     }
-
-
-    // private $connection;
-    // private static $instance;
-
-    // public static function getInstance()
-    // {
-    //     if (!self::$instance) {
-    //         self::$instance = new self();
-    //     }
-    //     return self::$instance;
-    // }
- 
-
-    // function __construct()
-    // {
-
-    //     $conn = array(
-    //         "host" => "192.168.3.19",
-    //         "username" => "root",
-    //         "password" => "root",
-    //         "database" => "laravel"
-    //     );
-
-    //     $this->connection = new \mysqli($conn["host"], $conn["username"], $conn["password"], $conn["database"]);
-
-    //     if ($this->connection->error) {
-    //         trigger_error("Failed to connect to MYSQL" . $this->connection->error, E_USER_ERROR);
-    //     }
-    // }
-
-    // private function __clone()
-    // { }
-
-    // public function getConnection()
-    // {
-    //     return $this->connection;
-    // }
-
-
-
-
 }

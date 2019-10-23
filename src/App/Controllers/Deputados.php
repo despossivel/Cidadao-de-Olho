@@ -13,25 +13,18 @@ class Deputados
     public function obter()
     {
 
-
         $crud = new CRUD();
-        print_r($crud->insert());
-
-
-
-
-
-        $almg = new Almg();
-        $response = $almg->request($this->URN);
+        $count = $crud->count();
         
-        return $response;
-    }
+        if ($count == 77) { 
+            return $crud->select();
+        } else {
+            $almg = new Almg();
+            $response = $almg->request($this->URN);
+            $insertTodos = $crud->insertTodos($response);
+            return $response;
+        }
 
-    public function top($idDeputado)
-    {
-        return $idDeputado;
-        // $almg = new Almg();
-        // $response = $almg->request("prestacao_contas/verbas_indenizatorias/legislatura_atual/deputados/{$idDeputado}/datas");
-        // return $response;
     }
+ 
 }
