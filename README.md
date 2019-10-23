@@ -14,7 +14,7 @@ composer reloadAutoload
 
 composer start
 
-### [Documentação](http://localhost:8080/documentacion/index.html)
+### [Documentação  http://localhost:8080/documentacion/index.html](http://localhost:8080/documentacion/index.html)
 
 ## OBS:
 #### Execute a rota /todos/deputados inicialmente para popular o banco de dados
