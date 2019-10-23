@@ -11,7 +11,7 @@ use Slim\Http\Response;
  *
  * @SWG\Swagger(
  *     basePath="",
- *     host="localhost:8000",
+ *     host="localhost:8080",
  *     schemes={"http"},
  *     @SWG\Info(
  *         version="0.0.0.1",

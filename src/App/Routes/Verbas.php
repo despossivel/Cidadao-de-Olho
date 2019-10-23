@@ -16,7 +16,7 @@ return function (App $app) {
      *     path="/verba/deputado/{idDeputado}",
      *     description="Retorna todas as verbas indenizatórias do deputado informado ",
      *     produces={"application/json"},
-     *     tags={"Todas as verdas indenizatórias do deputado"},
+     *     tags={"Todas as verbas indenizatórias do deputado"},
      *     @SWG\Response(
      *         response=200,
      *         description="OK"
@@ -32,7 +32,7 @@ return function (App $app) {
      *     path="/verbas/todas",
      *     description="Retorna todas as verbas de todos os 77 deputados",
      *     produces={"application/json"},
-     *     tags={"Todas as verdas indenizatórias de todos deputados"},
+     *     tags={"Todas as verbas indenizatórias de todos deputados"},
      *     @SWG\Response(
      *         response=200,
      *         description="OK"
@@ -42,6 +42,8 @@ return function (App $app) {
     $app->get('/verbas/todas', 'Verbas:obterTodas');
 
 
+
+
     /**
      * @return Response
      *
@@ -49,7 +51,7 @@ return function (App $app) {
      *     path="/verbas/todas/ranking",
      *     description="Retorna retorna um ranking dos mais gastadores durante todos os periodos",
      *     produces={"application/json"},
-     *     tags={"Todas as verdas indenizatórias de todos deputados"},
+     *     tags={"Todas as verbas indenizatórias de todos deputados"},
      *     @SWG\Response(
      *         response=200,
      *         description="OK"
@@ -57,7 +59,6 @@ return function (App $app) {
      * )
      */
     $app->get('/verbas/todas/ranking', 'Verbas:rankingTodos');
-
 
     /**
      * @return Response
