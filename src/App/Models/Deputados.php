@@ -21,8 +21,7 @@ class Deputados  //extends Deputados
 
     public function count()
     {
-        $count = $this->CONNECT->query("SELECT count(*) FROM deputados");
-        return $count;
+        return $this->CONNECT->query("SELECT count(*) FROM deputados");
     }
 
     public function select()

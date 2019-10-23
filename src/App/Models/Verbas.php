@@ -48,7 +48,7 @@ class Verbas  //extends Deputados  //extends Deputados
 
 
     public function rankingTop($mes)
-    {  
+    {
         $top = [];
         $select = $this->CONNECT->query("SELECT count(verbas.idDeputado) as verbasIdenizatiorias, deputados.nome, deputados.partido, verbas.dataReferencia 
         FROM verbas 
