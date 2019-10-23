@@ -15,6 +15,6 @@ CREATE TABLE `cidadaoDeOlho`.`verbas`
 (
   `idVerba` INT NOT NULL AUTO_INCREMENT,
   `idDeputado` INT NULL,
-  `dataReferencia` TIMESTAMP NULL,
+  `dataReferencia` DATE NULL,
   PRIMARY KEY
 (`idVerba`));

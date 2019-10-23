@@ -8,20 +8,27 @@ use Models\Deputados as CRUD;
 class Deputados
 {
 
-    private $URN = 'deputados/em_exercicio';
+    private $URN;
+    private $CRUD;
+
+    function __construct()
+    {
+        $this->URN = 'deputados/em_exercicio';
+        $this->CRUD = new CRUD();
+    }
+
 
     public function obter()
     {
 
-        $crud = new CRUD();
-        $count = $crud->count();
+        $count = $this->CRUD->count();
         
         if ($count == 77) { 
-            return $crud->select();
+            return $this->CRUD->select();
         } else {
             $almg = new Almg();
             $response = $almg->request($this->URN);
-            $insertTodos = $crud->insertTodos($response);
+            $this->CRUD->insertTodos($response);
             return $response;
         }
 

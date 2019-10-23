@@ -7,6 +7,14 @@ use Models\Verbas as CRUD;
 
 class Verbas
 {
+
+    private $CRUD;
+
+    function __construct()
+    {
+        $this->CRUD = new CRUD();
+    }
+
     public function obter($idDeputado)
     {
         $almg = new Almg();
@@ -15,13 +23,16 @@ class Verbas
 
     public function obterTodas()
     {
-        $verbas = new CRUD();
-        return $verbas->select();
+        return $this->CRUD->select();
     }
 
     public function rankingTodos()
     {
-        $verbas = new CRUD();
-        return $verbas->rankingTodos();
+        return $this->CRUD->rankingTodos();
+    }
+
+    public function top5($mes)
+    {
+        return $this->CRUD->rankingTop($mes);
     }
 }

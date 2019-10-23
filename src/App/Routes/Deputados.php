@@ -8,17 +8,10 @@ use Controllers\Deputados;
 
 return function (App $app) {
     $container = $app->getContainer();
+    $deputados = new Deputados();
     
-    $app->get('/todos/deputados', function (Request $request, Response $response, array $args) use ($container) {
-        $deputados = new Deputados();
+    $app->get('/todos/deputados', function (Request $request, Response $response, array $args) use ($container, $deputados) {
         return $response->withJson($deputados->obter(), 200)
-            ->withHeader('Content-type', 'application/json');
-    });
-
-    $app->get('/top/5/deputados', function (Request $request, Response $response, array $args) use ($container) {
-        $deputados = new Deputados();
-        
-        return $response->withJson($deputados->top(), 200)
             ->withHeader('Content-type', 'application/json');
     });
 

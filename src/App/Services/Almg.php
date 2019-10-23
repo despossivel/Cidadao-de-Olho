@@ -8,10 +8,17 @@ namespace Services;
 class Almg
 {
 
-    private $URL = 'http://dadosabertos.almg.gov.br/ws/';
-    private $FORMATO = '?formato=json';
-    private $METHOD = 'GET';
+    private $URL;
+    private $FORMATO;
+    private $METHOD;
     private $URN;
+
+    function __construct()
+    {
+        $this->URL = 'http://dadosabertos.almg.gov.br/ws/';
+        $this->FORMATO = '?formato=json';
+        $this->METHOD = 'GET';
+    }
 
     private function setURN($parametro)
     {
