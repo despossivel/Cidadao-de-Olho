@@ -19,15 +19,16 @@ $dependencies = require __DIR__ . '/../src/dependencies.php';
 $dependencies($app);
 
 
-// //Register routes
-// $routes = scandir(__DIR__ . '/../src/App/Routes/');
-// foreach ($routes as $route) {
-//     if (strpos($route, '.php')) {
-//         $_route_ = require __DIR__ . '/../src/App/Routes/' . $route;
-//         $_route_($App);
-//     }
-// }
+ //Register routes
+ $routes = scandir(__DIR__ . '/../src/App/Routes/');
+ foreach ($routes as $route) {
+     if (strpos($route, '.php')) {
+         $_route_ = require __DIR__ . '/../src/App/Routes/' . $route;
+         $_route_($app);
+     }
+ }
 
+/*
 $routesDeputados = require __DIR__ . '/../src/App/Routes/Deputados.php';
 $routesDeputados($app);
 
@@ -36,6 +37,6 @@ $routesVerbas($app);
 
 $routesSwagger = require __DIR__ . '/../src/App/Routes/Swagger.php';
 $routesSwagger($app);
-
+*/
 
 $app->run();
